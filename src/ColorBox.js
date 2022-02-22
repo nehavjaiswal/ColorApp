@@ -1,6 +1,5 @@
 import React,{ Component } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-
 import "./ColorBox.css"
 
 class ColorBox extends Component{
@@ -20,7 +19,7 @@ class ColorBox extends Component{
         return(
           <CopyToClipboard text={background} onCopy= {this.changeCopyState}>  
             <div style={{background }} className="colorBox">
-                <div style={{background }} className = {` copy-overla ${copied && "show"}`}/>
+                <div style={{background }} className = {`copy-overlay ${copied && "show"}`}/>
                 <div className = {`copy-msg ${copied && "show"}`} >
                     <h1>Copied!!</h1>
                     <p>{background}</p>
