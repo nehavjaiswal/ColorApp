@@ -22,13 +22,16 @@ class Palette extends Component{
         ))
         return(
             <div className="Palette">
-                <SliderTooltip 
-                    defaultValue={level}
-                    min = {100}
-                    max = {900}
-                    step = {100}
-                    onAfterChange = {this.changeLevel}
-                />
+                <div className="Slider">
+                    <SliderTooltip 
+                        defaultValue={level}
+                        min = {100}
+                        max = {900}
+                        step = {100}
+                        onAfterChange = {this.changeLevel}
+                    />
+                </div>
+               
                 <div className="Palette-colors">
                     {colorBoxs}
                 </div>
