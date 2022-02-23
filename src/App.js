@@ -6,7 +6,6 @@ import { generatePalette } from './ColorHelper';
 
 function App() {
     
-  console.log(generatePalette(seedColor[4]))
   return (
    
     <div>
