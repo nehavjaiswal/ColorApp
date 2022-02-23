@@ -3,12 +3,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 const style = {
    root : {
+        border : "2px solid black",
         backgroundColor : "white",
-        border : "1px solid black",
         position : "relative",
-        borderRedius : "5px",
+        borderRadius : "5px",
+        padding : "0.5rem",
         overflow : "hidden",
-        "$:hover" : {
+        "&:hover" : {
             cursor: "pointer"
         }
 
@@ -19,7 +20,8 @@ const style = {
    title :{
         display : "flex",
         justifyContent : "space-between",
-        alignItem : "centere",
+        alignItems : "center",
+        margin : "0",
         color : "black",
         paddingTop : "0.5rem",
         fontSize : "1rem",
