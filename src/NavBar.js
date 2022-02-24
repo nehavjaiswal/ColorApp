@@ -26,7 +26,7 @@ class NavBar extends Component{
         this.setState({ open:false })
     }
     render(){
-        const{ level, changeLevel } = this.props;
+        const{ level, changeLevel ,showingAllColor } = this.props;
         const {format} = this.state;
         return(
             <header className="NavBar">
@@ -36,7 +36,8 @@ class NavBar extends Component{
                 </Link>
                  <a href="#"></a>
                 </div>
-                <div className="slider-content">
+                {showingAllColor && (
+                 <div className="slider-content">
                     <span>Level: {level}</span>
                     <div className="Slider">
                     <SliderTooltip 
@@ -46,8 +47,10 @@ class NavBar extends Component{
                         step = {100}
                         onAfterChange = {changeLevel}
                     />
+                    </div>
                 </div>
-                </div>
+                )}
+                
                 <div className="select-container">
                 <Select value={format} onChange = {this.handleFormateChange}>
                     <MenuItem value= "hex">HEX - #fffff</MenuItem>
