@@ -7,8 +7,14 @@
     cursor: pointer;
     margin-bottom: -4.5px;
 }
+.SingleColorPalette .colorBox{
+    height: 50%;
+}
 
-.copy-button{
+.colorBox.go-back{
+    background-color: black;
+}
+.copy-button, .back-button{
     width: 100px;
     height: 30px;
     position: absolute;
@@ -25,6 +31,9 @@
     border: none;
     color: white;
     text-transform: uppercase;
+    text-decoration: none;
+}
+.copy-button{
     opacity: 0;
 }
 
@@ -45,6 +54,13 @@
     letter-spacing: 1px;
 }
 
+.light-text{
+    color: white;
+}
+
+.colorBox .dark-text{
+    color: rgb(0, 0, 0, 0.5);
+}
 .see-more{
     position: absolute;
     display: inline-block;
@@ -59,6 +75,8 @@
     text-align: center;
     text-transform: uppercase;
 }
+
+
 
 .copy-overlay{
         opacity: 0;
