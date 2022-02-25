@@ -5,11 +5,11 @@ import styles from "./Styles/PaletteFooterStyle";
 
 
 function PaletteFooter(props){
-    const {paletteName , emoji} = props;
+    const {paletteName , emoji, classes} = props;
     return(
-    <footer className="palette-footer">
+    <footer className= {classes.paletteFooter}>
         {paletteName}
-        <span className="emoji">
+        <span className={classes.emoji}>
             {emoji}
         </span>
     </footer>
