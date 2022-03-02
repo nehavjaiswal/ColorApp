@@ -28,18 +28,18 @@ const styles ={
         letterSpacing: "1px",
         display : "flex",
         justifyContent : "space-between",
-        transition : "all ease-in-out"
+        transition : "all 0.3s ease-in-out"
     }
 }
 
 function DraggableColorBox(props) {
-    const { classes } = props;
+    const { classes, color, name, handleClick } = props;
     return(
         <div className={classes.root} 
-        style={{background : props.color}}>
+        style={{background : color}}>
         <div className= {classes.BoxContent}>
-            <span> {props.name}</span>
-             <DeleteIcon classname= {classes.deleteIcon} />
+            <span> {name}</span>
+             <DeleteIcon className= {classes.deleteIcon} onClick= {handleClick} />
         </div>
            
         </div>
