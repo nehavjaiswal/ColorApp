@@ -76,7 +76,9 @@ class NavBar extends Component{
                           color ="inherit"
                           key="close"
                           aria-label="close"  >
+                          
                             <CloseIcon />
+                           
                         </IconButton>
                     ]}
                 />
