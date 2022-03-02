@@ -13,7 +13,7 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {palettes : seedColor}
-    this.submitPalette =this.submitPalette.bind(this);
+    this.savePalette =this.savePalette.bind(this);
     this.findPalette =this.findPalette.bind(this);
 
   }
@@ -22,14 +22,15 @@ class App extends Component{
       return palette.id === id;
     });
   }
-  submitPalette(newPalette){
+  savePalette(newPalette){
     this.setState({palettes: [...this.state.palettes, newPalette]})
   }
   render(){
     return(
          <Switch>
               
-              <Route exact path = "/palette/new"  render={(routeProps) => <NewPaletteForm submitPalette = {this.submitPalette} {...routeProps} /> }/>              
+              <Route exact path = "/palette/new" 
+               render={(routeProps) => <NewPaletteForm savePalette = {this.savePalette} palettes ={this.state.palettes} {...routeProps} /> }/>              
 
               <Route exact path="/palette/:paletteId/:colorId" 
                 render ={(routeProps) => <SingleColorPalette colorId = {routeProps.match.params.colorId} palette = {generatePalette(this.findPalette(routeProps.match.params.paletteId) )}
