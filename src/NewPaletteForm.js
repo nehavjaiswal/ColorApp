@@ -28,6 +28,8 @@ const styles = theme => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    display: 'flex',
+    alignItems : "center",
   },
   drawerHeader: {
     display: 'flex',
@@ -54,6 +56,20 @@ const styles = theme => ({
     }),
     marginLeft: 0,
   },
+  container : {
+    width :"90%",
+    height : "100%",
+    display : "flex",
+    flexDirection : "column",
+    justifyContent : "center",
+    alignItems : "center"
+  },
+  buttons :{
+    width :"100%", 
+  },
+  button :{
+    width :"50%", 
+  }
 });
 
 
@@ -159,18 +175,21 @@ class NewPaletteForm extends Component{
               </IconButton>
             </div>
             <Divider />
-            <Typography variant ="h4">Deasign Your Palette</Typography> 
+            <div className={classes.container}>
+            <Typography variant ="h4" gutterBottom>Deasign Your Palette</Typography> 
 
-            <div>
+            <div className={classes.buttons}>
               <Button 
                   variant="contained" 
                   color="secondary"
+                  className={classes.button}
                   onClick={this.clearColor}> 
                     clear color
                 </Button>
               <Button 
                   variant="contained" 
                   color="primary"
+                  className={classes.button}
                   disabled ={paletteIsFull} 
                   onClick = {this.addRandomColor}> 
                     random color 
@@ -182,6 +201,7 @@ class NewPaletteForm extends Component{
                 addNewColor={this.addNewColor} 
                 colors ={colors}
             />
+            </div>
           </Drawer>
             <main
               className={clsx(classes.content, {
