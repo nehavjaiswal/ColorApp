@@ -7,7 +7,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-
+import { Picker } from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
 
  class PaletteMetaForm extends Component {
    constructor(props){
@@ -40,17 +41,19 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 
   render() {
     const {open,newPaletteName} = this.state;
+    const { hideForm,handleSubmit } = this.props
     return (
-        <Dialog open={open} onClose={this.handleClose}>
+        <Dialog open={open} onClose={hideForm}>
           <DialogTitle>Subscribe</DialogTitle>
-          <ValidatorForm onSubmit={() => this.props.handleSubmit(newPaletteName)}>
+          <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
           <DialogContent>
             <DialogContentText>
               Please enter a name for your new beautiful palette. Make 
               sure it's unique!!
 
             </DialogContentText>
-                        <TextValidator
+            <Picker />
+                         <TextValidator
                             label= "Palette Name"
                             name= "newPaletteName"
                             fullWidth
@@ -60,7 +63,8 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
                             validators = {['required', 'isPaletteNameUnique']}
                             errorMessages = {['Enter the palette name', 'Name already Used!']}
                             
-                        />
+                        /> 
+               
                        
             
           </DialogContent>
@@ -71,8 +75,8 @@ import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
             type = "submit">
                 Save Palette 
           </Button>
-            {/* <Button onClick={this.handleClose}>Subscribe</Button> */}
-            <Button onClick={this.handleClose}>Cancel</Button>
+ 
+            <Button onClick={this.props.hideForm}>Cancel</Button>
           </DialogActions>
           </ValidatorForm>
         </Dialog>
