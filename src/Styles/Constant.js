@@ -1,0 +1,1 @@
+export const DRWER_WIDTH = 400;

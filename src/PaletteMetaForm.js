@@ -1,6 +1,5 @@
 import  React,{Component} from 'react';
 import Button from '@mui/material/Button';
-
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -9,7 +8,6 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import { Picker } from 'emoji-mart';
 import 'emoji-mart/css/emoji-mart.css';
-import emoji from 'emoji-mart/dist-es/components/emoji/emoji';
 
  class PaletteMetaForm extends Component {
    constructor(props){
@@ -53,8 +51,8 @@ import emoji from 'emoji-mart/dist-es/components/emoji/emoji';
   }
 
   render() {
-    const {open,newPaletteName} = this.state;
-    const { hideForm,handleSubmit } = this.props
+    const {newPaletteName} = this.state;
+    const { hideForm } = this.props
     return (
       <div>
       <Dialog open ={this.state.stage === "emoji"} onClose={hideForm}>
