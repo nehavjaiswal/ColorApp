@@ -1,6 +1,6 @@
 import  React,{Component} from 'react';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -9,15 +9,18 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import { Picker } from 'emoji-mart';
 import 'emoji-mart/css/emoji-mart.css';
+import emoji from 'emoji-mart/dist-es/components/emoji/emoji';
 
  class PaletteMetaForm extends Component {
    constructor(props){
      super(props);
      this.state = {
-      open : true,
+      stage : "form",
       newPaletteName: ""
      } 
      this.handleChange = this.handleChange.bind(this)
+     this.showEmojiPicker = this.showEmojiPicker.bind(this)
+     this.savePalette = this.savePalette.bind(this)
 
     }
     componentDidMount(){
@@ -38,21 +41,37 @@ import 'emoji-mart/css/emoji-mart.css';
   handleChange(evt){
     this.setState({[evt.target.name] : evt.target.value})
   }
+  showEmojiPicker(){
+    this.setState({stage : "emoji"})
+  }
+  savePalette(emoji){
+    const newPalette = {
+      paletteName : this.state.newPaletteName,
+      emoji : emoji.native
+    };
+    this.props.handleSubmit(newPalette)
+  }
 
   render() {
     const {open,newPaletteName} = this.state;
     const { hideForm,handleSubmit } = this.props
     return (
-        <Dialog open={open} onClose={hideForm}>
-          <DialogTitle>Subscribe</DialogTitle>
-          <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
+      <div>
+      <Dialog open ={this.state.stage === "emoji"} onClose={hideForm}>
+      <DialogTitle>Choose a Palette Emoji</DialogTitle>
+
+      <Picker title='Pick your emoji' onSelect={this.savePalette} />
+      </Dialog>
+        <Dialog open={this.state.stage === "form"} onClose={hideForm}>
+          <DialogTitle>Choose a Palette Name</DialogTitle>
+          <ValidatorForm onSubmit={this.showEmojiPicker}>
           <DialogContent>
             <DialogContentText>
               Please enter a name for your new beautiful palette. Make 
               sure it's unique!!
 
             </DialogContentText>
-            <Picker />
+          
                          <TextValidator
                             label= "Palette Name"
                             name= "newPaletteName"
@@ -80,6 +99,7 @@ import 'emoji-mart/css/emoji-mart.css';
           </DialogActions>
           </ValidatorForm>
         </Dialog>
+        </div>
     );
     }
   
