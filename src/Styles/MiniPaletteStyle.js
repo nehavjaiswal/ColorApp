@@ -1,4 +1,5 @@
 export default {
+     
     root : {
          border : "2px solid black",
          backgroundColor : "white",
@@ -42,8 +43,8 @@ export default {
     deleteIcon:{
          color : "white",
          backgroundColor : "#eb3d30",
-     //     width : "20px",
-     //     height : "20px",
+         width : "25px",
+         height : "25px",
          position : "absolute",
          top :"0px",
          right : "0px",
