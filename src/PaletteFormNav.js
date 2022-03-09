@@ -27,7 +27,9 @@ class PaletteFormNav extends Component{
     }
     
     handleChange(evt){
-        this.setState({[evt.target.name] : evt.target.value})
+        this.setState({
+            [evt.target.name] : evt.target.value
+        });
       }
       showForm(){
           this.setState({ formShowing : true })

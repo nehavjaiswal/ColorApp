@@ -1,4 +1,4 @@
-import { DRWER_WIDTH } from "./Constant";
+import { DRWER_WIDTH } from "../Constant";
 
 const drawerWidth = DRWER_WIDTH;
 
