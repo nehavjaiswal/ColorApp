@@ -1,7 +1,8 @@
+import chroma from "chroma-js";
 import sizes from "./Sizes";
 
 const styles ={
-    root : {
+    root:{
         height : "25%",
         width: "20%",
         margin: "0 auto",
@@ -9,25 +10,25 @@ const styles ={
         position: "relative",
         cursor: "pointer",
         marginBottom: "-5.6px",
-        "&:hover svg" : {
+        "&:hover svg": {
             color : "white",
             transform : "scale(1.2)"
         },
-        [sizes.down("lg")] : {
+        [sizes.down("lg")]: {
             width: "25%",
             height : "20%"
         },
-        [sizes.down("md")] : {
+        [sizes.down("md")]: {
             width: "50%",
             height : "10%"
             },
-        [sizes.down("xs")] : {
+        [sizes.down("xs")]: {
             width: "100%",
             height : "5%",
            
-        },
+        }
     },
-    BoxContent : {
+    BoxContent: {
         width: "100%",
         position: "absolute",
         bottom: "0px",
@@ -35,12 +36,17 @@ const styles ={
         padding: "10px",
         fontSize:"12px",
         textTransform: "uppercase",
-        color: "rgba(0, 0, 0, 0.3)",
+        color: props => 
+        chroma(props.color).luminance() <= 0.08 
+        ? "rgba(255,255,255,0.8)" 
+        : "rgba(0,0,0,0.6)",
         letterSpacing: "1px",
         display : "flex",
-        justifyContent : "space-between",
-        transition : "all 0.3s ease-in-out",  
+        justifyContent : "space-between" 
     },
+    deleteIcon: {
+        transition : "all 0.3s ease-in-out"
+    }
 }
 
 export default styles;

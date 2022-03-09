@@ -1,6 +1,5 @@
 import React,{Component} from "react";
 import clsx from 'clsx';
-import { arrayMove } from "react-sortable-hoc";
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Typography from '@material-ui/core/Typography';
@@ -11,19 +10,22 @@ import Button from '@material-ui/core/Button';
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 import DraggableColorList from "./DraggableColorList";
+import seedColor from "./seedColor";
 import styles from "./Styles/NewPaletteFormStyle";
+import { arrayMove } from "react-sortable-hoc";
+
 
 
 class NewPaletteForm extends Component{
-  static defaultProps={
+  static defaultProps = {
     maxColors : 20
   }
   constructor(props){
     super(props);
     this.state ={
       open : true,
-      newColorName : "",
-      colors : this.props.palettes[0].colors
+      
+      colors : seedColor[0].colors
     };
     this.addNewColor = this.addNewColor.bind(this);
     this.handleChange = this.handleChange.bind(this);
