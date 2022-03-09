@@ -1,12 +1,12 @@
 import  React,{Component} from 'react';
+import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import { Picker } from 'emoji-mart';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-import { Picker } from 'emoji-mart';
 import 'emoji-mart/css/emoji-mart.css';
 
  class PaletteMetaForm extends Component {
@@ -52,16 +52,16 @@ import 'emoji-mart/css/emoji-mart.css';
   }
 
   render() {
-    const {newPaletteName} = this.state;
+    const {newPaletteName,stage} = this.state;
     const { hideForm } = this.props
     return (
       <div>
-      <Dialog open ={this.state.stage === "emoji"} onClose={hideForm}>
+      <Dialog open ={stage === "emoji"} onClose={hideForm}>
       <DialogTitle>Choose a Palette Emoji</DialogTitle>
 
       <Picker title='Pick your emoji' onSelect={this.savePalette} />
       </Dialog>
-        <Dialog open={this.state.stage === "form"} onClose={hideForm}>
+        <Dialog open={stage === "form"} onClose={hideForm}>
           <DialogTitle>Choose a Palette Name</DialogTitle>
           <ValidatorForm onSubmit={this.showEmojiPicker}>
           <DialogContent>
@@ -94,7 +94,7 @@ import 'emoji-mart/css/emoji-mart.css';
                 Save Palette 
           </Button>
  
-            <Button onClick={this.props.hideForm}>Cancel</Button>
+            <Button onClick={hideForm}>Cancel</Button>
           </DialogActions>
           </ValidatorForm>
         </Dialog>

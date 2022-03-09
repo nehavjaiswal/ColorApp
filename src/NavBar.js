@@ -7,8 +7,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import 'rc-slider/assets/index.css';
 import { withStyles } from "@material-ui/styles";
+import 'rc-slider/assets/index.css';
 
 
 

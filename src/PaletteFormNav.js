@@ -39,7 +39,7 @@ class PaletteFormNav extends Component{
 
       }
     render(){
-        const {classes, open, palettes, handleSubmit} = this.props;
+        const {classes, open, palettes, handleSubmit,handleDrawerOpen} = this.props;
         // const {newPaletteName} = this.state;
         return(
             <div className={classes.root}>
@@ -51,32 +51,47 @@ class PaletteFormNav extends Component{
                     [classes.appBarShift]: open,
                     })}
                 >
-                    <Toolbar>
+                    <Toolbar disableGutters={!open}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"
-                        onClick={this.props.handleDrawerOpen}
+                        onClick={handleDrawerOpen}
                         edge="start"
                         className={classNames(classes.menuButton,{
-                        [classes.hide]: open,
+                        [classes.hide]: open
                          })}
                     >
                         <AddToPhotosIcon/>
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h6" color = "inherit" noWrap>
                        Create A Palette
                     </Typography>
                     </Toolbar>
-                    <div className={classes.newBtns}>
+                    <div className={classes.navBtns}>
                     <Link to="/"> 
-                        <Button  variant="contained" color="secondary" className={classes.btn}> Go Back </Button>
+                        <Button 
+                         variant="contained" 
+                         color="secondary" 
+                         className={classes.btn} >
+                          Go Back 
+                          </Button>
                     </Link>
-                    <Button variant="contained" color="primary" onClick={this.showForm}  className={classes.btn}>
+                    <Button 
+                         variant="contained"
+                         color="primary" 
+                         onClick={this.showForm} 
+                         className={classes.btn}>
                         Save
                      </Button>
                     </div>
                 </AppBar>
-               { this.state.formShowing && ( <PaletteMetaForm  palettes ={palettes} handleSubmit ={handleSubmit} hideForm ={this.hideForm} /> )} 
+               { this.state.formShowing && (
+                    <PaletteMetaForm 
+                     palettes ={palettes}
+                      handleSubmit ={handleSubmit} 
+                      hideForm ={this.hideForm} 
+                    /> 
+                    )} 
             </div>
         )
     }
@@ -84,4 +99,4 @@ class PaletteFormNav extends Component{
 
 
 
-export default withStyles(styles, {withThem : true}) (PaletteFormNav);
+export default withStyles(styles, {withTheme : true}) (PaletteFormNav);

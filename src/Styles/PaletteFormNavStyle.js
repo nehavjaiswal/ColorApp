@@ -23,12 +23,12 @@ const styles = theme => ({
         transition: theme.transitions.create(['margin', 'width'], {
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen,
-        }),
+        })
       },
       menuButton: {
         marginRight: theme.spacing(2),
       },
-      newBtns: {
+      navBtns: {
         marginRight :"1rem",
         "& a": {
             textDecoration : "none",
