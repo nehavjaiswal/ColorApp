@@ -48,6 +48,7 @@ import 'emoji-mart/css/emoji-mart.css';
       emoji : emoji.native
     };
     this.props.handleSubmit(newPalette)
+    this.setState({stage : ""})
   }
 
   render() {

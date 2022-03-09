@@ -11,7 +11,7 @@ const styles ={
         marginBottom: "-5.6px",
         "&:hover svg" : {
             color : "white",
-            transform : "scale(1.5)"
+            transform : "scale(1.2)"
         },
         [sizes.down("lg")] : {
             width: "25%",

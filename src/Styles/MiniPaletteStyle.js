@@ -20,6 +20,7 @@ export default {
     },
     title:{
          display : "flex",
+         height:"1.5rem",
          justifyContent : "space-between",
          alignItems : "center",
          margin : "0",
@@ -38,18 +39,18 @@ export default {
          display : "inline-block",
          margin : "0 auto",
          position : "relative",
-         marginBottom : "-3.5px"
+         marginBottom : "-4.5px"
     },
     deleteIcon:{
-         color : "white",
-         backgroundColor : "#eb3d30",
-         width : "25px",
-         height : "25px",
-         position : "absolute",
-         top :"0px",
-         right : "0px",
-         zIndex : 10,
-         opacity : 0
+          position : "absolute",
+          right : "-1px",
+          top :"-1px",
+          color : "white",
+          backgroundColor : "#eb3d30",
+          width : "20px",
+          height : "20px",
+          zIndex : 10,
+          opacity : 0
     }
- }
+ };
  
