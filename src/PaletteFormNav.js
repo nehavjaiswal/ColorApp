@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import clsx from 'clsx';
+import classNames from 'classnames';
 import { Link } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -47,7 +47,7 @@ class PaletteFormNav extends Component{
                 <AppBar
                     color= "default"
                     position="fixed"
-                    className={clsx(classes.appBar, {
+                    className={classNames(classes.appBar, {
                     [classes.appBarShift]: open,
                     })}
                 >
@@ -57,7 +57,7 @@ class PaletteFormNav extends Component{
                         aria-label="open drawer"
                         onClick={this.props.handleDrawerOpen}
                         edge="start"
-                        className={clsx(classes.menuButton,{
+                        className={classNames(classes.menuButton,{
                         [classes.hide]: open,
                          })}
                     >

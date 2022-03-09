@@ -28,7 +28,7 @@ export default {
     },
     slider : {
         width: "340px",
-        margin: "0 1px",
+        margin: "0 10px",
         display: "inline-block",
         "& .rc-slider-track" :{
             backgroundColor: "transparent",
@@ -43,7 +43,7 @@ export default {
             boxShadow: "none",
             width: "13px",
             height: "13px",
-            marginLeft: "-7px",
+            // marginLeft: "2px",
             marginTop: "-3px",
             
         },
