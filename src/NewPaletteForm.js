@@ -1,12 +1,8 @@
 import React,{Component} from "react";
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
+import {Drawer, Typography, Divider, IconButton, Button } from '@material-ui/core';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import Button from '@material-ui/core/Button';
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 import DraggableColorList from "./DraggableColorList";
@@ -24,7 +20,7 @@ class NewPaletteForm extends Component{
     super(props);
     this.state ={
       open : true,
-      
+      currentColor : "#000000",
       colors : seedColor[0].colors
     };
     this.addNewColor = this.addNewColor.bind(this);
@@ -61,9 +57,9 @@ class NewPaletteForm extends Component{
       addRandomColor(){
         const allColor = this.props.palettes.map(p => p.colors).flat();
         let rand;
-        let randomColor = allColor[rand];
+        let randomColor;
         let isDuplicateColor = true;
-        while(isDuplicateColor){
+        while (isDuplicateColor){
           rand = Math.floor(Math.random()* allColor.length);
           randomColor = allColor[rand];
           isDuplicateColor = this.state.colors.some(
@@ -98,7 +94,7 @@ class NewPaletteForm extends Component{
   
         return(
         <div className={classes.root}>
-             <PaletteFormNav classes = {classes}
+             <PaletteFormNav 
                open={open}
                palettes ={palettes}
                handleChange={this.handleChange}
@@ -157,7 +153,7 @@ class NewPaletteForm extends Component{
               <div className={classes.drawerHeader} />
             
                 <DraggableColorList
-                  colors = {this.state.colors} 
+                  colors = {colors} 
                   removeColor = {this.removeColor} 
                   axis ="xy"
                   onSortEnd = {this.onSortEnd}

@@ -16,6 +16,9 @@ const styles = theme => ({
         justifyContent : "space-between",
         alignItems : "center",
         height: "64px",
+        [sizes.down("sm")]: {
+          height: "55px"
+        }
       },
       appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -26,7 +29,11 @@ const styles = theme => ({
         })
       },
       menuButton: {
-        marginRight: theme.spacing(2),
+        marginRight: 20,
+        marginLeft : 12
+      },
+      hide: {
+        display : "none"
       },
       navBtns: {
         marginRight :"1rem",
@@ -40,11 +47,17 @@ const styles = theme => ({
       },
       btn: {
         margin : "0 0.5rem",
-        [sizes.down("xs")] : {
-          margin : "0 0.3rem",
-          padding : "0.3rem"
+        [sizes.down("md")]: {
+          margin: "0 0.2rem",
+          fontSize: "0.8rem",
+          padding: "0.3rem"
+        },
+        [sizes.down("xs")]: {
+          margin: "0 0.2rem",
+          fontSize: "0.8rem",
+          padding: "0.3rem"
+        }
       },
-      },
-})
+});
 
 export default styles;

@@ -2,13 +2,8 @@ import React, {Component} from "react";
 import classNames from 'classnames';
 import { Link } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import {CssBaseline, AppBar, Toolbar, Typography, IconButton, Button }from '@material-ui/core';
 import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
-import Button from '@material-ui/core/Button';
 import PaletteMetaForm from "./PaletteMetaForm";
 import styles from "./Styles/PaletteFormNavStyle";
 
@@ -40,7 +35,7 @@ class PaletteFormNav extends Component{
       }
     render(){
         const {classes, open, palettes, handleSubmit,handleDrawerOpen} = this.props;
-        // const {newPaletteName} = this.state;
+        const {formShowing} = this.state;
         return(
             <div className={classes.root}>
                 <CssBaseline />
@@ -68,7 +63,7 @@ class PaletteFormNav extends Component{
                     </Typography>
                     </Toolbar>
                     <div className={classes.navBtns}>
-                    <Link to="/"> 
+                    <Link to="/" > 
                         <Button 
                          variant="contained" 
                          color="secondary" 
@@ -80,16 +75,16 @@ class PaletteFormNav extends Component{
                          variant="contained"
                          color="primary" 
                          onClick={this.showForm} 
-                         className={classes.btn}>
+                         className={classes.btn} >
                         Save
                      </Button>
                     </div>
                 </AppBar>
-               { this.state.formShowing && (
+               { formShowing && (
                     <PaletteMetaForm 
-                     palettes ={palettes}
-                      handleSubmit ={handleSubmit} 
-                      hideForm ={this.hideForm} 
+                        palettes ={palettes}
+                        handleSubmit ={handleSubmit} 
+                        hideForm ={this.hideForm} 
                     /> 
                     )} 
             </div>

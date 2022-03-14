@@ -29,10 +29,10 @@ const styles ={
         }
     },
     BoxContent: {
-        width: "100%",
         position: "absolute",
         bottom: "0px",
         left: "0px",
+        width: "100%",
         padding: "10px",
         fontSize:"12px",
         textTransform: "uppercase",
